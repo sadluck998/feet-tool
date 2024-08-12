@@ -47,7 +47,7 @@ yum install -y maven
 
 ## 打包项目 （网络问题，可能要多执行几次，可能使用阿里仓库，参考项目的/maven/conf/settings.xml）
 进入项目目录
-mvn clean package docker:build
+mvn clean package -Dmaven.test.skip=true docker:build
 
 ## 运行项目
 ### 确保 3306和8080端口可用

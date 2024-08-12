@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.example.feettool.base.dto.EntityBase;
+import org.example.feettool.enums.CarbonCategory;
 
 import java.io.Serial;
 import java.math.BigDecimal;
@@ -22,6 +23,11 @@ public class EmissionDto extends EntityBase {
     @Serial
     private static final long serialVersionUID = 2707755142800576929L;
 
+    /**
+     * @see CarbonCategory
+     */
+    @NotBlank
+    private String category;
     @NotBlank
     private String name;
     @NotBlank
