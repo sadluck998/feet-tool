@@ -13,4 +13,12 @@ public interface EmissionService {
     Optional<EmissionDto> fetch(String id);
 
     boolean delete(List<String> ids);
+
+    /**
+     * 保存 列表， 返回所有数据
+     *
+     * @param dtoList
+     * @return
+     */
+    List<EmissionDto> addOrUpdate(List<EmissionDto> dtoList);
 }

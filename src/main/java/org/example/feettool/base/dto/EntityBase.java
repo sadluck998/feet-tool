@@ -3,7 +3,6 @@ package org.example.feettool.base.dto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 import java.io.Serial;
@@ -19,7 +18,6 @@ public abstract class EntityBase implements Serializable {
 
     @Id
     @Column(length = 32)
-    @NotBlank
     private String id;
 
     @Column(name = "create_by", length = 50)

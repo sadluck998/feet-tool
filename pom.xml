@@ -56,8 +56,8 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
         <dependency>
-            <groupId>jakarta.validation</groupId>
-            <artifactId>jakarta.validation-api</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
         <dependency>
@@ -88,14 +88,13 @@
                 <configuration>
                     <skipDockerBuild>false</skipDockerBuild>
                     <baseImage>openjdk:17</baseImage>
-                    <imageName>${project.parent.artifactId}/${project.artifactId}</imageName>
+                    <imageName>example/${project.artifactId}</imageName>
                     <exposes>8080</exposes>
                     <env>
                         <SPRING_PROFILES_ACTIVE>dev</SPRING_PROFILES_ACTIVE>
                     </env>
                     <entryPoint>
-                        ["sh", "-c", "java -Xmx200M -Xms200M -Dspring.profiles.active=$SPRING_PROFILES_ACTIVE
-                        -jar /${project.build.finalName}.jar"]
+                        ["sh", "-c", "java -Xmx200M -Xms200M -Dspring.profiles.active=$SPRING_PROFILES_ACTIVE -jar /${project.build.finalName}.jar"]
                     </entryPoint>
                     <resources>
                         <resource>

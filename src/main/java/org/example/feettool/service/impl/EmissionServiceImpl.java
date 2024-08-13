@@ -46,4 +46,21 @@ public class EmissionServiceImpl implements EmissionService {
         repository.deleteAllByIdInBatch(ids);
         return true;
     }
+
+    /**
+     * 保存 列表， 返回所有数据
+     *
+     * @param dtoList
+     * @return
+     */
+    @Override
+    public List<EmissionDto> addOrUpdate(List<EmissionDto> dtoList) {
+        dtoList.forEach(o -> {
+            if (StringUtils.isBlank(o.getId())) {
+                o.setId(TimingUuid.uuid());
+            }
+        });
+        repository.saveAll(dtoList);
+        return repository.findAll();
+    }
 }
